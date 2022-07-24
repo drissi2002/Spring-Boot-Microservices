@@ -1,0 +1,49 @@
+#Routing
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: movie-info-service
+          uri: lb://movie-info-service
+          predicates:
+            - Path=/movies/**
+        - id: movie-ratting-service
+          uri: lb://movie-ratting-service
+          predicates:
+            - Path=/ratting/**
+        - id: movie-catalog-service
+          uri: lb://movie-catalog-service
+          predicates:
+            - Path=/catalog/**
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            token-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/token
+            authorization-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/auth
+            user-name-attribute: preferred_username
+            user-info-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/userinfo
+            jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs
+            user-info-authentication-method: header
+        registration:
+          internet-banking-core-client:
+            provider: keycloak
+            client-id: movie-client
+            client-secret: armpVjL14lGkPhhkwH7bC5fENZPaU35z
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/keycloak
+            scope: openid
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${app.config.keycloak.url}/realms/${app.config.keycloak.realm}/protocol/openid-connect/certs  
+
+#SECURITY BASED CONFIGURATIONS
+app:
+  config:
+    keycloak:
+      url: http://localhost:8080/auth
+      realm: security-service

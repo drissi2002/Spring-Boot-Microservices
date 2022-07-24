@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: movie-catalog-service
+# data will be streamed to get exposed on the hystrix dashboard
+management:
+  endpoints.web.exposure.include: hystrix.stream
+  endpoint:
+       hystrix.stream.enabled: true
+       metrics.enabled: true
+# http://localhost:8081/actuator/hystrix.stream
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+spring: 
+  application: 
+    name: movie-ratting-service
+#to discover some @Value features
+
+attribute:
+  value: "Another Update for the message : hello from the config-server "
+  list: "{username:admin,password:QZERFGHY}"
+
+#attribute.object={Url:'http://www.google.com',domain:'.com'}

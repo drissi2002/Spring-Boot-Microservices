@@ -1,0 +1,20 @@
+server:
+  port: 8083
+spring.application.name: application-ratting
+#to discover some @Value features
+attribute:
+  value: "this is ratting-service"
+  list: "{username:houcem,password:ZPXWNV}"
+#attribute.object={Url:'http://www.google.com',domain:'.com'}
+
+management.endpoints.web.exposure.include: "*"
+spring.cloud.config.uri: http://localhost:8888
+#switching from the "default" profile to the "test" profile
+# spring.profiles.active: test
+spring:
+  cloud:
+    config:
+      enabled: true
+  config:
+    import: configserver:http://localhost:8888
+

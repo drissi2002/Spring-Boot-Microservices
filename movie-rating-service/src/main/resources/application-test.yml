@@ -1,0 +1,11 @@
+#the "test" profile
+server:
+  port: 8083
+spring.application.name: movie-ratting-service
+#to discover some @Value features
+attribute:
+  value: "test-with-new-profile-here"
+  list: "{username:Mariem,password:HUNDELOM}"
+#attribute.object={Url:'http://www.google.com',domain:'.com'}
+
+management.endpoints.web.exposure.include: "*"

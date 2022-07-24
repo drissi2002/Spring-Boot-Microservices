@@ -1,0 +1,10 @@
+server:
+  port: 8999
+
+spring.application.name: application-gateway
+spring:
+  cloud:
+    config:
+      enabled: true
+  config:
+    import: configserver:http://localhost:8888

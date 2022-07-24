@@ -1,0 +1,5 @@
+#!/bin/sh
+spring:
+  application:
+    name: movie-info-service
+api.key: 9cd487b12927a8d0d2387bb7d03538a0

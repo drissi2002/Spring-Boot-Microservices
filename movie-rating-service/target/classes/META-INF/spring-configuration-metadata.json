@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "attribute",
+      "type": "com.springboot.first.app.attributeSettings",
+      "sourceType": "com.springboot.first.app.attributeSettings"
+    }
+  ],
+  "properties": [
+    {
+      "name": "attribute.list",
+      "type": "java.lang.String",
+      "sourceType": "com.springboot.first.app.attributeSettings"
+    },
+    {
+      "name": "attribute.value",
+      "type": "java.lang.String",
+      "sourceType": "com.springboot.first.app.attributeSettings"
+    }
+  ],
+  "hints": []
+}
