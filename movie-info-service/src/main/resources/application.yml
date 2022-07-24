@@ -1,0 +1,9 @@
+server:
+  port: 8082
+spring.application.name: application-info
+spring:
+  cloud:
+    config:
+      enabled: true
+  config:
+    import: configserver:http://localhost:8888
